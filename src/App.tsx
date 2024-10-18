@@ -1,4 +1,13 @@
+import { Route, Routes } from "react-router-dom";
+import { Home, Login, Join } from "./pages";
+
 const App: React.FC = () => {
-  return <div>프로젝트 시작입니다.</div>;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/join" element={<Join />} />
+    </Routes>
+  );
 };
 export default App;
