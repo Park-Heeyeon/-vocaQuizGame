@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import MainImg from "../../public/images/main_img.png";
-import { Button } from "../components";
+import { Button } from "@/components";
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-md">
@@ -26,4 +26,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
