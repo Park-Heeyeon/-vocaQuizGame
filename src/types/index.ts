@@ -9,4 +9,11 @@ type UserInfoType = {
   level: number;
 };
 
-export type { VocaListType, UserInfoType };
+type RegisterFormType = {
+  nickname: string;
+  id: string;
+  password: string;
+  confirmPassword: string;
+};
+
+export type { VocaListType, UserInfoType, RegisterFormType };

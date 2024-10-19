@@ -8,10 +8,12 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Control } from "react-hook-form";
+import { RegisterFormType } from "@/types";
 
 type FieldProps = {
-  control: Control;
-  name: string;
+  control: Control<RegisterFormType>; // Control 타입 설정
+  name: keyof RegisterFormType; // 필드 이름
+  type?: string;
   label?: string;
   placeholder?: string;
   description?: string;
@@ -21,6 +23,7 @@ type FieldProps = {
 const InputField: React.FC<FieldProps> = ({
   control,
   name,
+  type = "text",
   label,
   placeholder,
   description,
@@ -37,6 +40,7 @@ const InputField: React.FC<FieldProps> = ({
             <Input
               placeholder={placeholder}
               className={`w-full sm:w-full ${style}`} // 반응형 너비 설정
+              type={type}
               {...field}
             />
           </FormControl>
