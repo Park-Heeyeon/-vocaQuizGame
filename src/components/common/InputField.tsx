@@ -34,7 +34,7 @@ const InputField: React.FC<FieldProps> = ({
       {...control}
       name={name}
       render={({ field }) => (
-        <FormItem className="">
+        <FormItem className="h-full">
           <FormLabel className="text-customDepBlueColor">{label}</FormLabel>
           <FormControl>
             <Input
