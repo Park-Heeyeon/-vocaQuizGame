@@ -1,19 +1,4 @@
-type VocaListType = {
-  [key: string]: string;
-};
-
-type UserInfoType = {
-  id: string;
-  pwd: string;
-  nickname: string;
-  level: number;
-};
-
-type RegisterFormType = {
-  nickname: string;
-  id: string;
-  password: string;
-  confirmPassword: string;
-};
-
-export type { VocaListType, UserInfoType, RegisterFormType };
+export type { ModalStateType } from "./ModalStateType";
+export type { RegisterFormType } from "./RegisterFormType";
+export type { UserInfoType } from "./UserInfoType";
+export type { VocaListType } from "./VacaListType";

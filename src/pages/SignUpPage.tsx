@@ -12,7 +12,7 @@ const SignUpPage: React.FC = () => {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center">
-      <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md p-5">
+      <Card className="w-full max-w-xs sm:max-w-sm md:max-w-md p-5 pb-8">
         {/* 뒤로가기 아이콘 */}
         <AiOutlineLeft
           onClick={handleGoBack}
