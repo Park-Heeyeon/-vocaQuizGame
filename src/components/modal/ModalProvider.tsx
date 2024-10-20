@@ -30,4 +30,5 @@ const ModalProvider: React.FC = () => {
     </>
   );
 };
+
 export default ModalProvider;

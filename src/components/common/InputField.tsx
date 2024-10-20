@@ -7,12 +7,11 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Control } from "react-hook-form";
-import { SignUpFormType } from "@/types";
+import { Control, FieldValues, Path } from "react-hook-form";
 
-type FieldProps = {
-  control: Control<SignUpFormType>; // Control 타입 설정
-  name: keyof SignUpFormType; // 필드 이름
+type FieldProps<T extends FieldValues> = {
+  control: Control<T>; // Control 타입 설정
+  name: Path<T>; // 필드 이름
   type?: string;
   label?: string;
   placeholder?: string;
@@ -20,7 +19,7 @@ type FieldProps = {
   style?: string;
 };
 
-const InputField: React.FC<FieldProps> = ({
+const InputField = <T extends FieldValues>({
   control,
   name,
   type = "text",
@@ -28,10 +27,10 @@ const InputField: React.FC<FieldProps> = ({
   placeholder,
   description,
   style,
-}) => {
+}: FieldProps<T>) => {
   return (
     <FormField
-      {...control}
+      control={control} // control 속성을 직접 전달
       name={name}
       render={({ field }) => (
         <FormItem className="h-full">

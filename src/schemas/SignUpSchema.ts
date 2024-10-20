@@ -3,7 +3,7 @@ import * as z from "zod";
 const passwordRegex =
   /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$&*?!%])[A-Za-z\d!@$%&*?]{8,15}$/;
 
-export const RegisterSchema = z
+export const SignUpSchema = z
   .object({
     nickname: z.string().min(1, {
       message: "닉네임을 입력해주세요",
