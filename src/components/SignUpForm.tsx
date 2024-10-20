@@ -5,7 +5,7 @@ import { InputField, Button } from "@/components";
 import { RegisterSchema } from "@/schemas/RegisterSchema";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterFormType } from "@/types";
+import { SignUpFormType } from "@/types";
 import { postSignUp } from "@/api";
 
 const SignUpForm: React.FC = () => {
@@ -22,7 +22,7 @@ const SignUpForm: React.FC = () => {
   const { handleSubmit, control } = form;
 
   // 가입하기 버튼 클릭 시 실행되는 함수
-  const handleOnSubmit = (data: RegisterFormType) => {
+  const handleOnSubmit = (data: SignUpFormType) => {
     console.log("희연 가입하기 버튼 클릭 !!");
     console.log("희연 form", data);
     /* 

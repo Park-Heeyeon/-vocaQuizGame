@@ -1,4 +1,4 @@
-export interface RegisterFormType {
+export interface SignUpFormType {
   nickname: string;
   id: string;
   password: string;

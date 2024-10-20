@@ -7,9 +7,9 @@ const LoginModal: React.FC = () => {
   const { closeAllModal } = useModal();
   const navigate = useNavigate();
 
-  const onClickJoinBtn = () => {
+  const onClickSignUp = () => {
     closeAllModal();
-    navigate("/join");
+    navigate("/signup");
   };
 
   return (
@@ -19,7 +19,7 @@ const LoginModal: React.FC = () => {
       <Button className="bg-customDepBlueColor hover:bg-customBlueColor">
         Submit
       </Button>
-      <Button variant={"secondary"} onClick={onClickJoinBtn}>
+      <Button variant={"secondary"} onClick={onClickSignUp}>
         Sign Up
       </Button>
     </>

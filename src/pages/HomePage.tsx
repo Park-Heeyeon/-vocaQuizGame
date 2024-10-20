@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
           text="회원가입"
           color="bg-customGrayColor"
           style="w-[70%] px-12 py-3 mt-2"
-          clickEvent={() => navigate("/join")}
+          clickEvent={() => navigate("/signup")}
         />
       </div>
     </div>

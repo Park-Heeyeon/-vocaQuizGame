@@ -8,11 +8,11 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Control } from "react-hook-form";
-import { RegisterFormType } from "@/types";
+import { SignUpFormType } from "@/types";
 
 type FieldProps = {
-  control: Control<RegisterFormType>; // Control 타입 설정
-  name: keyof RegisterFormType; // 필드 이름
+  control: Control<SignUpFormType>; // Control 타입 설정
+  name: keyof SignUpFormType; // 필드 이름
   type?: string;
   label?: string;
   placeholder?: string;
