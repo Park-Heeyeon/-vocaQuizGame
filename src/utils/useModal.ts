@@ -16,6 +16,10 @@ const useModal = () => {
     setModals((prev) => prev.filter((item) => item.id !== id));
   };
 
-  return { openModal, closeModal };
+  const closeAllModal = () => {
+    setModals([]);
+  };
+
+  return { openModal, closeModal, closeAllModal };
 };
 export default useModal;

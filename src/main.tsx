@@ -22,8 +22,8 @@ enableMocking().then(() => {
     <RecoilRoot>
       <BrowserRouter>
         <App />
+        <ModalProvider />
       </BrowserRouter>
-      <ModalProvider />
     </RecoilRoot>
   );
 });
