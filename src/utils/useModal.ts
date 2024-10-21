@@ -10,7 +10,7 @@ const useModal = () => {
 
   const openModal = ({
     type = "confirm",
-    title,
+    title = "알림",
     content,
     clickEvent,
   }: ModalStateType) => {
