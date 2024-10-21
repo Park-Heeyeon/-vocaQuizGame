@@ -1,16 +1,6 @@
 import { http, HttpResponse } from "msw";
 
-const loginRequest = http.post("/api/login", () => {
-  return HttpResponse.json({
-    code: "OK",
-    statue: 200,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-});
-
-const signUpRequest = http.post("/api/signup", () => {
+const signUpHandler = http.post("/api/signup", () => {
   return HttpResponse.json({
     code: "OK",
     status: 200,
@@ -20,4 +10,14 @@ const signUpRequest = http.post("/api/signup", () => {
   });
 });
 
-export const handlers = [loginRequest, signUpRequest];
+const loginHandler = http.post("/api/login", () => {
+  return HttpResponse.json({
+    code: "OK",
+    statue: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+});
+
+export const handlers = [signUpHandler, loginHandler];

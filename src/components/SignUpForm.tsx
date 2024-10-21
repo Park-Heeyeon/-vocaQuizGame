@@ -6,9 +6,12 @@ import { SignUpSchema } from "@/schemas/SignUpSchema";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignUpFormType } from "@/types";
-import { postSignUp } from "@/api";
+import { requestSignUp } from "@/api";
 import useModal from "@/utils/useModal";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { useSetRecoilState } from "recoil";
+import { userInfoState } from "@/atom/userInfoState";
 
 const SignUpForm: React.FC = () => {
   const form = useForm<z.infer<typeof SignUpSchema>>({
@@ -24,6 +27,11 @@ const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
   const { openModal } = useModal();
   const { handleSubmit, control } = form;
+  const setUserInfo = useSetRecoilState(userInfoState);
+
+  const { mutate } = useMutation({
+    mutationFn: requestSignUp,
+  });
 
   // 가입하기 버튼 클릭 시 실행되는 함수
   const handleOnSubmit = (data: SignUpFormType) => {
@@ -31,16 +39,24 @@ const SignUpForm: React.FC = () => {
         사용자가 입력한 정보가 모두 유효성 검사가 걸쳐지고 나면 
         회원가입 요청 통신 (MSW) 후 통신이 성공이 된다면 Main으로 이동
     */
-    postSignUp(data).then((res) => {
-      console.log("희연 res", res);
-      openModal({
-        type: "confirm",
-        title: "알림",
-        content: "회원가입이 정상적으로 처리되었습니다.",
-        clickEvent: () => {
-          navigate("/");
-        },
-      });
+    mutate(data, {
+      onSuccess: () => {
+        const { nickname, id, password } = data;
+        setUserInfo({ nickname, id, password }); // 회원정보를 전역 상태로 저장
+
+        openModal({
+          content: "회원가입이 정상적으로 처리되었습니다.",
+          clickEvent: () => {
+            navigate("/");
+          },
+        });
+      },
+      onError: (error) => {
+        openModal({
+          title: "에러",
+          content: `회원가입 중 중 문제가 발생했습니다: ${error.message}`,
+        });
+      },
     });
   };
 
