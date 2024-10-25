@@ -20,4 +20,14 @@ const loginHandler = http.post("/api/login", () => {
   });
 });
 
-export const handlers = [signUpHandler, loginHandler];
+const logoutHandler = http.post("/api/logout", () => {
+  return HttpResponse.json({
+    code: "OK",
+    statue: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+});
+
+export const handlers = [signUpHandler, loginHandler, logoutHandler];

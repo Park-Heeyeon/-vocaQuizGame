@@ -18,3 +18,8 @@ export const requestLogin = async (loginForm: LoginFormType) => {
   });
   return response.data;
 };
+
+export const requestLogout = async () => {
+  const response = await api.post("/logout");
+  return response.data;
+};

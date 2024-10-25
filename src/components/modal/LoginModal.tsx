@@ -6,21 +6,18 @@ import { LoginFormType } from "@/types";
 import { Form } from "../ui/form";
 import Button from "../common/Button";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { userInfoState } from "@/atom/userInfoState";
-import { useMutation } from "@tanstack/react-query";
 import { requestLogin } from "@/api";
 import { isLoggedInState } from "@/atom/isLoggedInState";
 import { useCallback } from "react";
+import { userListState } from "@/atom/userListState";
+import { userInfoState } from "@/atom/userInfoState";
 
 const LoginModal: React.FC = () => {
   const { openModal, closeAllModal } = useModal();
   const navigate = useNavigate();
-  const userInfo = useRecoilValue(userInfoState);
+  const userList = useRecoilValue(userListState);
+  const setUserInfo = useSetRecoilState(userInfoState);
   const setIsLoggedIn = useSetRecoilState(isLoggedInState);
-
-  const { mutate } = useMutation({
-    mutationFn: requestLogin,
-  });
 
   const form = useForm({
     defaultValues: {
@@ -41,7 +38,11 @@ const LoginModal: React.FC = () => {
     }
 
     // 전역 상태에 저장된 아이디/비밀번호와 입력한 아이디/비밀번호 일치 검사
-    if (id !== userInfo.id || password !== userInfo.password) {
+    const matchedUser = userList.find(
+      (user) => id === user.id && password === user.password
+    );
+
+    if (!matchedUser) {
       openModal({
         content: "아이디 또는 비밀번호가 일치하지 않습니다.",
       });
@@ -49,29 +50,25 @@ const LoginModal: React.FC = () => {
     }
 
     // 위 조건을 모두 통과한 경우 로그인 API 요청
-    mutate(
-      { id, password },
-      {
-        onSuccess: () => {
-          // 로그인 성공 시 Recoil 상태 업데이트
-          setIsLoggedIn(true);
 
-          openModal({
-            content: "로그인에 성공했습니다.",
-            clickEvent: () => {
-              closeAllModal();
-              navigate("/"); // 로그인 후 이동할 페이지
-            },
-          });
-        },
-        onError: (error) => {
-          openModal({
-            title: "에러",
-            content: `로그인 중 문제가 발생했습니다: ${error.message}`,
-          });
-        },
-      }
-    );
+    requestLogin({ id, password })
+      .then(() => {
+        openModal({
+          content: "로그인에 성공했습니다.",
+          clickEvent: () => {
+            closeAllModal();
+            setIsLoggedIn(true); // 로그인 성공 시 Recoil 상태 업데이트
+            setUserInfo(matchedUser);
+            navigate("/"); // 로그인 후 이동할 페이지
+          },
+        });
+      })
+      .catch(() => {
+        openModal({
+          title: "에러",
+          content: `로그인 요청 중 문제가 발생했습니다.`,
+        });
+      });
   };
 
   const onClickSignUp = useCallback(() => {
