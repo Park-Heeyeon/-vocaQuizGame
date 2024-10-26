@@ -1,20 +1,22 @@
 import { getWordLevel } from "@/api";
 import { userInfoState } from "@/atom/userInfoState";
+import { userListState } from "@/atom/userListState";
 import { Button } from "@/components";
 import AnswerModal from "@/components/modal/AnswerModal";
 import { VocaListType } from "@/types";
 import useModal from "@/utils/useModal";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import { AiOutlineLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 const QuizPage = () => {
   const [randomWord, setRandomWord] = useState<string | null>(null);
   const [options, setOptions] = useState<string[]>([]);
   const [answer, setAnswer] = useState<string | null>(null);
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const setUserList = useSetRecoilState(userListState);
   const level = userInfo.level || 1;
 
   const { openModal } = useModal();
@@ -74,14 +76,24 @@ const QuizPage = () => {
   };
 
   useEffect(() => {
-    if (isFetched) {
+    if (isFetched && data) {
       getRandomQuiz();
     }
-  }, [isFetched]); // data가 변경될 때마다 퀴즈 갱신
+  }, [isFetched, data]); // data와 isFetched가 변경될 때마다 퀴즈 갱신
+  
+
+  // userInfo 변경 시 userList 업데이트
+  useEffect(() => {
+    setUserList((prevList) => {
+      return prevList.map((user) =>
+        user.id === userInfo.id ? userInfo : user
+      );
+    });
+  }, [userInfo]);
 
   return (
     <div className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-md">
-      <FaArrowLeft
+      <AiOutlineLeft
         className="absolute top-2 cursor-pointer text-customGrayColor left-2 w-6 h-6"
         onClick={() => navigate("/")}
       />{" "}

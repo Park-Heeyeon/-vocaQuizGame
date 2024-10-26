@@ -9,7 +9,7 @@ import { SignUpFormType } from "@/types";
 import { requestSignUp } from "@/api";
 import useModal from "@/utils/useModal";
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { userListState } from "@/atom/userListState";
 
 const SignUpForm: React.FC = () => {
@@ -26,10 +26,27 @@ const SignUpForm: React.FC = () => {
   const navigate = useNavigate();
   const { openModal } = useModal();
   const { handleSubmit, control } = form;
-  const setUserList = useSetRecoilState(userListState);
+  const [userList, setUserList] = useRecoilState(userListState);
 
   // 가입하기 버튼 클릭 시 실행되는 함수
   const handleOnSubmit = (data: SignUpFormType) => {
+    const isDuplicateNickname = userList.some(
+      (user) => user.nickname === data.nickname
+    );
+    const isDuplicateId = userList.some((user) => user.id === data.id);
+
+    if (isDuplicateNickname) {
+      return openModal({
+        content: "중복된 닉네임이에요.",
+      });
+    }
+
+    if (isDuplicateId) {
+      return openModal({
+        content: "중복된 아이디에요.",
+      });
+    }
+
     /* 
         사용자가 입력한 정보가 모두 유효성 검사가 걸쳐지고 나면 
         회원가입 요청 통신 (MSW) 후 통신이 성공이 된다면 Main으로 이동
