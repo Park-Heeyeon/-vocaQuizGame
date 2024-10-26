@@ -4,10 +4,13 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import Button from "./common/Button";
 import { requestLogout } from "@/api";
 import { isLoggedInState } from "@/atom/isLoggedInState";
+import { useNavigate } from "react-router-dom";
 
 const UserHome: React.FC = () => {
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   const setIsLoggedIn = useSetRecoilState(isLoggedInState);
+
+  const navigate = useNavigate();
 
   const logout = () => {
     requestLogout()
@@ -58,6 +61,7 @@ const UserHome: React.FC = () => {
           <Button
             style="mx-1 px-6 py-3 text-white rounded-md"
             text="퀴즈 풀기"
+            clickEvent={() => navigate("/quiz")}
           />
           <Button
             style="mx-1 px-6 py-3 bg-customGrayColor text-white rounded-md"

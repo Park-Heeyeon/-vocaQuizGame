@@ -1,3 +1,4 @@
 export type VocaListType = {
-  [key: string]: string;
+  word: string;
+  meaning: string;
 };

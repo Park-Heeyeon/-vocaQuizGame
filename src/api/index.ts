@@ -23,3 +23,8 @@ export const requestLogout = async () => {
   const response = await api.post("/logout");
   return response.data;
 };
+
+export const getWordLevel = async (level: number) => {
+  const response = await api.get("/word", { params: { level } });
+  return response.data;
+};
