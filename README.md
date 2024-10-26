@@ -43,4 +43,15 @@
 <img width="330" alt="스크린샷 2024-10-27 오전 12 17 31" src="https://github.com/user-attachments/assets/dd8de289-3607-4794-8f05-ae0e69547933">
 <img width="328" alt="스크린샷 2024-10-27 오전 12 17 42" src="https://github.com/user-attachments/assets/a6fb99bd-2913-4eee-8741-b538c37c0c6b"><img width="330" alt="스크린샷 2024-10-27 오전 12 17 52" src="https://github.com/user-attachments/assets/32158938-dfa9-4e2e-9364-638db723fdf9">
 
+### 메인화면 
+'오늘은 그만'을 클릭하면 로그아웃 후 진입화면으로 이동되도록 로직 설계 
+로그인한 사용자의 현재 레벨, 레벨 진행률 표시
+<img width="330" alt="스크린샷 2024-10-27 오전 12 18 00" src="https://github.com/user-attachments/assets/782a1e0c-6505-4b09-92dc-587123f1e8e7">
+
+### 퀴즈화면
+사용자의 레벨에 따른 영어 단어 퀴즈 출제 
+정답 여부에 따른 모달 표시 > 사용자가 정답을 맞춘 후 다음 문제 풀기 버튼을 클릭하면 랜덤 퀴즈 재갱신
+<img width="331" alt="스크린샷 2024-10-27 오전 12 21 18" src="https://github.com/user-attachments/assets/121efc2c-e26a-4ac5-b0c2-2d346a4d576b">
+<img width="326" alt="스크린샷 2024-10-27 오전 12 22 24" src="https://github.com/user-attachments/assets/20b75a92-f373-4738-887e-f974b5f56e87">
+<img width="334" alt="스크린샷 2024-10-27 오전 12 22 32" src="https://github.com/user-attachments/assets/ac64d6ad-ce85-4986-b603-a8c5c8f9d2c3">
 
