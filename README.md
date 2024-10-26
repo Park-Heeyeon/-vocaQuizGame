@@ -1,6 +1,10 @@
-# 언어 학습 앱
+# Hello, Voca Quiz Game: 언어 학습 앱
 
 이 프로젝트는 **React.js**와 **TypeScript**를 사용하여 개발된 언어 학습 애플리케이션입니다. 사용자에게 단어 학습과 레벨별 퀴즈 기능을 제공하여 효과적으로 학습 진도를 관리하고 맞춤형 퀴즈를 제공합니다.
+
+## 주요 페이지
+<img width="331" alt="스크린샷 2024-10-27 오전 12 05 32" src="https://github.com/user-attachments/assets/157aa1bc-57e4-4841-be82-023c45244ff1">
+
 
 ## 주요 기술 스택
 
