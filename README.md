@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# 언어 학습 앱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+이 프로젝트는 **React.js**와 **TypeScript**를 사용하여 개발된 언어 학습 애플리케이션입니다. 사용자에게 단어 학습과 레벨별 퀴즈 기능을 제공하여 효과적으로 학습 진도를 관리하고 맞춤형 퀴즈를 제공합니다.
 
-Currently, two official plugins are available:
+## 주요 기술 스택
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React.js** + **TypeScript**: 사용자 인터페이스와 데이터 흐름을 위한 프론트엔드 라이브러리 및 언어
+- **Vite**: 빠르고 효율적인 빌드 도구 및 개발 서버
+- **pnpm**: 빠른 패키지 관리 도구
+- **TailwindCSS**, **scadcn/ui**: 스타일링 및 컴포넌트 기반 UI 구현
+- **MSW (Mock Service Worker)**: 개발 환경에서 API 요청을 모킹하여 독립적인 프론트엔드 개발 가능
+- **Recoil**: 전역 상태 관리 라이브러리 (회원 정보, 회원 리스트, 로그인 여부, 공통 모달 관리)
+- **React-Query**: 서버 상태 관리 라이브러리
+- **React Router**: 페이지 분기 처리를 위한 라우팅 라이브러리
 
-## Expanding the ESLint configuration
+## 핵심 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **회원가입, 로그인, 로그아웃**: `react-hook-form`과 `zod`를 이용한 유효성 검사 및 폼 관리
+- **단어 학습 및 퀴즈 기능**: 사용자가 단어 카드를 통해 학습하고, 레벨에 맞는 퀴즈를 통해 학습 진도를 점검할 수 있는 기능
+- **맞춤형 퀴즈 제공**: 사용자의 학습 진도에 따라 적합한 퀴즈를 제공하여 학습 효율성을 증대
+- **공통 모달 관리**: `recoil`을 통해 로그인 및 기타 UI 상호작용을 위한 공통 모달 상태를 관리
+- **페이지 분기 처리**: `react-router`를 사용하여 사용자 인터페이스의 페이지 전환 관리
 
-- Configure the top-level `parserOptions` property like this:
+## 사용 라이브러리 및 도구
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Zod**: TypeScript 기반의 스키마 선언 및 유효성 검사 라이브러리
+- **React Hook Form**: 쉽고 효율적인 폼 관리를 위한 React 훅
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 도전 과제
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+사용자의 학습 진도와 성과를 기반으로 **맞춤형 퀴즈를 제공**하며, 학습 데이터를 효과적으로 관리하여 학습 효율성을 높이는 방식에 집중하였습니다. 이를 통해 사용자에게 보다 효율적인 학습 경험을 제공합니다.
