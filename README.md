@@ -50,11 +50,16 @@
 
 ### 퀴즈화면
 사용자의 레벨에 따른 영어 단어 퀴즈 출제 
-정답 여부에 따른 모달 표시 > 사용자가 정답을 맞춘 후 다음 문제 풀기 버튼을 클릭하면 랜덤 퀴즈 재갱신
-레벨업이 된 경우 레벨업 알림 모달 표출 후 다음 레벨의 랜덤 퀴즈 출제 
+
 <img width="331" alt="스크린샷 2024-10-27 오전 12 21 18" src="https://github.com/user-attachments/assets/121efc2c-e26a-4ac5-b0c2-2d346a4d576b">
+
+### 정답 여부에 따른 모달 표시 
+사용자가 정답을 맞춘 후 다음 문제 풀기 버튼을 클릭하면 랜덤 퀴즈 재갱신
+레벨업이 된 경우 레벨업 알림 모달 표출 후 다음 레벨의 랜덤 퀴즈 출제 
+
 <img width="329" alt="스크린샷 2024-10-27 오전 12 24 59" src="https://github.com/user-attachments/assets/9efc80d0-85ed-44be-afb2-1047a25af469">
 <img width="326" alt="스크린샷 2024-10-27 오전 12 22 24" src="https://github.com/user-attachments/assets/20b75a92-f373-4738-887e-f974b5f56e87">
-<img width="329" alt="스크린샷 2024-10-27 오전 12 24 59" src="https://github.com/user-attachments/assets/1bd84442-6fc5-4139-b19d-970123385cb6">
+<img width="327" alt="스크린샷 2024-10-27 오전 12 25 50" src="https://github.com/user-attachments/assets/02f4fec9-23a3-4713-ac75-9a23755cb133">
+
 
 
