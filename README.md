@@ -2,10 +2,6 @@
 
 이 프로젝트는 **React.js**와 **TypeScript**를 사용하여 개발된 언어 학습 애플리케이션입니다. 사용자에게 단어 학습과 레벨별 퀴즈 기능을 제공하여 효과적으로 학습 진도를 관리하고 맞춤형 퀴즈를 제공합니다.
 
-## 주요 페이지
-<img width="331" alt="스크린샷 2024-10-27 오전 12 05 32" src="https://github.com/user-attachments/assets/157aa1bc-57e4-4841-be82-023c45244ff1">
-
-
 ## 주요 기술 스택
 
 - **React.js** + **TypeScript**: 사용자 인터페이스와 데이터 흐름을 위한 프론트엔드 라이브러리 및 언어
@@ -33,3 +29,18 @@
 ## 도전 과제
 
 사용자의 학습 진도와 성과를 기반으로 **맞춤형 퀴즈를 제공**하며, 학습 데이터를 효과적으로 관리하여 학습 효율성을 높이는 방식에 집중하였습니다. 이를 통해 사용자에게 보다 효율적인 학습 경험을 제공합니다.
+
+## 주요 페이지
+### 진입화면 
+<img width="331" alt="스크린샷 2024-10-27 오전 12 05 32" src="https://github.com/user-attachments/assets/157aa1bc-57e4-4841-be82-023c45244ff1">
+
+### 회원가입
+<img width="329" alt="스크린샷 2024-10-27 오전 12 05 39" src="https://github.com/user-attachments/assets/035514c3-88fa-4a4b-948d-da6542673da0">
+<img width="335" alt="스크린샷 2024-10-27 오전 12 05 47" src="https://github.com/user-attachments/assets/9f60172e-90b4-41c1-8075-8d853a9765fa">
+<img width="336" alt="스크린샷 2024-10-27 오전 12 06 01" src="https://github.com/user-attachments/assets/08f721d3-e2d3-4bfe-815b-44403549e290">
+
+### 로그인
+<img width="330" alt="스크린샷 2024-10-27 오전 12 17 31" src="https://github.com/user-attachments/assets/dd8de289-3607-4794-8f05-ae0e69547933">
+<img width="328" alt="스크린샷 2024-10-27 오전 12 17 42" src="https://github.com/user-attachments/assets/a6fb99bd-2913-4eee-8741-b538c37c0c6b"><img width="330" alt="스크린샷 2024-10-27 오전 12 17 52" src="https://github.com/user-attachments/assets/32158938-dfa9-4e2e-9364-638db723fdf9">
+
+
