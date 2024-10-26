@@ -18,7 +18,7 @@ const VisitorHome: React.FC = () => {
           style="w-[70%] px-12 py-3"
           clickEvent={() =>
             openModal({
-              type: "custom",
+              type: "login",
               title: "Login",
               content: <LoginModal />,
             })

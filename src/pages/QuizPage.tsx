@@ -60,13 +60,16 @@ const QuizPage = () => {
       });
       // 정답 알림 팝업 표출
       openModal({
-        content: <AnswerModal />,
-        clickEvent: () => {
-          navigate("/");
-        },
+        type: "custom",
+        content: <AnswerModal isAnswer={true} />,
+        clickEvent: () => getRandomQuiz(),
       });
     } else {
-      console.log("희연 땡 !!");
+      openModal({
+        type: "custom",
+        title: "오답",
+        content: <AnswerModal isAnswer={false} />,
+      });
     }
   };
 
@@ -93,7 +96,6 @@ const QuizPage = () => {
                   text={option}
                   style="w-[60%] py-2 text-lg text-white font-semibold rounded-2lg shadow hover:bg-customDepBlueColor transition duration-200"
                   clickEvent={() => {
-                    // 정답 확인 로직을 여기에 추가
                     onClickOption(option);
                   }}
                 />

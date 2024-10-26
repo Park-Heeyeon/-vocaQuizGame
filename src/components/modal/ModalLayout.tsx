@@ -22,13 +22,15 @@ const ModalLayout: React.FC<ModalStateType> = ({
 
   return (
     <div className="w-full bg-gray-50  border-gray-300 flex flex-col text-center p-8 rounded-2xl shadow-md gap-4 mx-auto">
-      {type === "custom" && (
+      {type === "login" && (
         <FaTimes
           className="cursor-pointer text-customGrayColor"
           onClick={() => closeModal(id)}
         />
       )}
-      <h1 className="font-bold text-xl text-customDepGrayColor">{title}</h1>
+      {title && (
+        <h1 className="font-bold text-xl text-customDepGrayColor">{title}</h1>
+      )}
       {typeof content === "string" ? (
         <p>{content}</p> // 문자열인 경우
       ) : (

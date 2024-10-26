@@ -18,6 +18,9 @@ const ModalProvider: React.FC = () => {
                 className="modal-overlay"
                 onClick={() => {
                   closeModal(modal.id);
+                  if (modal.clickEvent) {
+                    modal.clickEvent(); // 클릭 이벤트가 있을 경우 호출
+                  }
                 }}
               />
             )}
