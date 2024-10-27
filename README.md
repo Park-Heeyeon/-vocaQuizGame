@@ -17,14 +17,13 @@
 - **페이지 분기 처리**: `react-router`를 사용하여 사용자 인터페이스의 페이지 전환 관리
 
 ## 사용 라이브러리 및 도구
-
-- **Zod**: TypeScript 기반의 스키마 선언 및 유효성 검사 라이브러리
-- **React Hook Form**: 쉽고 효율적인 폼 관리를 위한 React 훅
 - **MSW (Mock Service Worker)**: 개발 환경에서 API 요청을 모킹하여 독립적인 프론트엔드 개발 가능
 - **Recoil**: 전역 상태 관리 라이브러리 (회원 정보, 회원 리스트, 로그인 여부, 공통 모달 관리)
 - **React-Query**: 서버 상태 관리 라이브러리
 - **React Router**: 페이지 분기 처리를 위한 라우팅 라이브러리
 - **TailwindCSS**, **scadcn/ui**: 스타일링 및 컴포넌트 기반 UI 구현
+- **Zod**: TypeScript 기반의 스키마 선언 및 유효성 검사 라이브러리
+- **React Hook Form**: 쉽고 효율적인 폼 관리를 위한 React 훅
 
 ## 도전 과제
 
