@@ -69,7 +69,6 @@ const QuizPage = () => {
     } else {
       openModal({
         type: "custom",
-        title: "오답",
         content: <AnswerModal isAnswer={false} />,
       });
     }
@@ -80,7 +79,6 @@ const QuizPage = () => {
       getRandomQuiz();
     }
   }, [isFetched, data]); // data와 isFetched가 변경될 때마다 퀴즈 갱신
-  
 
   // userInfo 변경 시 userList 업데이트
   useEffect(() => {

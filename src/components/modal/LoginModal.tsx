@@ -49,8 +49,6 @@ const LoginModal: React.FC = () => {
       return;
     }
 
-    console.log("희연 matchedUser", matchedUser);
-
     // 위 조건을 모두 통과한 경우 로그인 API 요청
     requestLogin({ id, password })
       .then(() => {
