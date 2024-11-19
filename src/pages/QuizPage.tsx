@@ -64,7 +64,9 @@ const QuizPage = () => {
       openModal({
         type: "custom",
         content: <AnswerModal isAnswer={true} />,
-        clickEvent: () => getRandomQuiz(),
+        clickEvent: () => {
+          getRandomQuiz();
+        },
       });
     } else {
       openModal({

@@ -14,7 +14,8 @@ const AnswerModal: React.FC<AnswerModalProps> = ({ clickEvent, isAnswer }) => {
   const isLevelUp = levelRate === 0;
 
   const onClickBtn = () => {
-    if (clickEvent) {
+    // 레벨업 팝업이 표시되지 않는 경우에만 clickEvent를 먼저 실행
+    if (clickEvent && !isLevelUp) {
       clickEvent();
     }
     closeAllModal();
@@ -23,7 +24,7 @@ const AnswerModal: React.FC<AnswerModalProps> = ({ clickEvent, isAnswer }) => {
   return (
     <div>
       <h2 className="text-xl font-semibold text-center mb-2">
-        {isAnswer ? "정답이에요!" : "오답이에요!"}
+        {isAnswer ? "정답이에요 🥳🎉" : "오답이에요 😢💧"}
       </h2>
       {isAnswer ? (
         <p className="text-gray-700 text-center mb-4">
