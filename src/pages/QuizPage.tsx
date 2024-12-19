@@ -38,36 +38,49 @@ const QuizPage = () => {
     setAnswer(correctMeaning);
 
     // 모든 뜻을 배열로 변환하고, 정답의 뜻을 포함하여 랜덤으로 3개 선택
-    const meaningsList = vocaList.map((item: VocaListType) => item.meaning); // 각 객체에서 meaning만 추출
+    const meaningsList = Array.from(
+      new Set(vocaList.map((item: VocaListType) => item.meaning))
+    ); // 중복 제거
     const randomMeanings = meaningsList
-      .sort(() => Math.random() - 0.5) // 랜덤으로 섞기
-      .slice(0, 2); // 2개 무작위 선택
+      .filter((meaning) => meaning !== correctMeaning) // 정답 제외
+      .sort(() => Math.random() - 0.5) // 랜덤 섞기
+      .slice(0, 2); // 2개 선택
 
     randomMeanings.push(correctMeaning); // 정답 추가
     const randomOptions = randomMeanings.sort(() => Math.random() - 0.5); // 옵션 랜덤으로 섞기
-    setOptions(randomOptions); // 답변 옵션 상태 업데이트
+    setOptions(randomOptions as string[]); // 상태 업데이트
   };
 
   const onClickOption = (selectOption: string) => {
     if (answer === selectOption) {
-      setUserInfo((prev) => {
-        const currentLevel = prev.level ?? 1; // 기본값 1
-        const currentLevelRate = prev.levelRate ?? 0; // 기본값 0
-        const isLevelUp = currentLevelRate === 90;
-        return {
-          ...prev,
-          level: isLevelUp ? currentLevel + 1 : currentLevel,
-          levelRate: isLevelUp ? 0 : currentLevelRate + 10,
-        };
-      });
-      // 정답 알림 팝업 표출
-      openModal({
-        type: "custom",
-        content: <AnswerModal isAnswer={true} />,
-        clickEvent: () => {
-          getRandomQuiz();
-        },
-      });
+      if (userInfo.level === 3 && userInfo.levelRate === 90) {
+        // 정답 알림 팝업 표출
+        openModal({
+          content: "정답이지만, 레벨3 이후의 서비스는 준비중이에요😢💧",
+          clickEvent: () => {
+            navigate("/");
+          },
+        });
+      } else {
+        setUserInfo((prev) => {
+          const currentLevel = prev.level ?? 1; // 기본값 1
+          const currentLevelRate = prev.levelRate ?? 0; // 기본값 0
+          const isLevelUp = currentLevelRate === 90;
+          return {
+            ...prev,
+            level: isLevelUp ? currentLevel + 1 : currentLevel,
+            levelRate: isLevelUp ? 0 : currentLevelRate + 10,
+          };
+        });
+        // 정답 알림 팝업 표출
+        openModal({
+          type: "custom",
+          content: <AnswerModal isAnswer={true} />,
+          clickEvent: () => {
+            getRandomQuiz();
+          },
+        });
+      }
     } else {
       openModal({
         type: "custom",
